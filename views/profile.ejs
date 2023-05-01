@@ -1,0 +1,269 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>🏠</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  body {
+    background-color: #f7f7f7;
+    font-family: "Roboto", sans-serif;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: auto;
+    padding-top: 30px;
+  }
+
+  .page-header {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .fa-anchor {
+    color: #f0ad4e;
+    font-size: 60px;
+  }
+
+  h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color: #f0ad4e;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .well {
+    background-color: #fff;
+    border: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    padding: 30px;
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f0ad4e;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  ul.messages {
+    
+    padding: 0;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  ul.messages .message {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  button.tools-class {
+    background-color: #f0ad4e;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  button.tools-class:hover {
+    background-color: #f1c197;
+  }
+
+  .fa-plus {
+    color: #f0ad4e;
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  .fa-trash {
+    color: #d9534f;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  #tool-storage {
+    font-size: 24px;
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #tool-random {
+    background-color: #f0ad4e;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  #tool-random:hover {
+    background-color: #f1c197;
+  }
+
+  </style>
+
+<body>
+  <div class="container">
+
+    <div class="page-header text-center">
+      <h1><span class="fa fa-anchor"></span>Welcome</h1>
+    </div>
+
+    <div class="row">
+
+      <!-- LOCAL INFORMATION -->
+      <div class="col-sm-6">
+        <div class="well">
+          <div>
+            <h1>RULES:</h1>
+            <p>Today, we build a house!<br>
+              But first... you need your tools, big dog.<br>
+              Here's what you'll need:</p>
+            <ol>
+              <li>(12) x 🔩</li>
+              <li>(6) x 🔧</li>
+              <li>(3) x 🪚</li>
+              <li>(2) x 🔨</li>
+              <li>(1) x 🧰</li>
+            </ol>
+            <p>Click through the tool bag to grab your stuff,<br>
+              Update as soon as you get your tool,<br>
+              How fast can you build the house?
+            </p>
+          </div>
+
+          <!-- <% if (user.local.email) { %>
+                    <p>
+                        <strong>id</strong>: <%= user._id %><br>
+                        <strong>email</strong>: <%= user.local.email %><br>
+                        <strong>password</strong>: <%= user.local.password %>
+                    </p>
+
+                    <a href="/unlink/local" class="btn btn-default">Unlink</a>
+                <% } else { %>
+                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                <% } %> -->
+
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <h3>Tools</h3>
+        <ul class="messages">
+          <!-- <% for(var i=0; i<messages.length; i++) {%>
+            <li class="message">
+              <button class = "tools-class"><%= messages[i].name %>🔨</button>
+              <button class = "tools-class"><%= messages[i].msg %>🔨</button>
+              <button class = "tools-class"><%= messages[i].thumbUp %>🔨</button>
+              <span><i class="fa fa-thumbs-up" aria-hidden="true"data-id="<%= messages[i]._id %>"></i></span>
+            </li>
+          <% } %> -->
+          <% for(var i=0; i<messages.length; i++) {%>
+            <ul class="message">
+              <li>🔩</li><i class="fa-solid fa-plus nuts-tally" aria-hidden="true" data-id="<%= messages[i]._id %>"></i>
+              </li>
+              <span class="tools-class" id = "nuts-value">
+                <%= messages[i].nutsUp %>
+              </span>
+              <li>🔧</li><i class="fa-solid fa-plus wrench-tally" aria-hidden="true"
+                data-id="<%= messages[i]._id %>"></i></li>
+              <span class="tools-class"  id = "wrench-value">
+                <%= messages[i].wrenchUp %>
+              </span>
+              <li>🪚</li><i class="fa-solid fa-plus saw-tally" aria-hidden="true" data-id="<%= messages[i]._id %>"></i>
+              </li>
+              <span class="tools-class" id = "saw-value">
+                <%= messages[i].sawUp %>
+              </span>
+              <li>🔨</li><i class="fa-solid fa-plus hammer-tally" aria-hidden="true"
+                data-id="<%= messages[i]._id %>"></i></li>
+              <span class="tools-class" id = "hammer-value">
+                <%= messages[i].hammerUp %>
+              </span>
+              <li>🧰</li><i class="fa-solid fa-plus toolbox-tally" aria-hidden="true"
+                data-id="<%= messages[i]._id %>"></i></li>
+              <span class="tools-class" id = "toolbox-value">
+                <%= messages[i].toolboxUp %>
+              </span>
+            </ul>
+            <span><i class="fa fa-trash" aria-hidden="true" data-id="<%= messages[i]._id %>"></i></span>
+            <% } %>
+
+        </ul>
+        <div>
+          <h4 id="tool-storage"></h4>
+          <button id="tool-random">Grab Tools!</button>
+        </div>
+        <!-- <div id="stopwatch-container">
+          <div id="stopwatch-display">00:00:00</div>
+          <button id="start-stopwatch-btn">Start</button>
+          <button id="stop-stopwatch-btn">Stop</button>
+          <button id="reset-stopwatch-btn">Reset</button>
+        </div> -->
+
+        </div>
+        <h2>Enter Your Name to Start!</h2>
+        <% if (user.local.email) { %>
+          <form action="/messages" method="POST">
+            <input type="text" placeholder="Bob the Builder" name="name">
+            <!-- <input type="text" placeholder="message" name="msg"> -->
+            <button type="submit">START</button>
+          </form>
+      </div>
+      <% } %>
+
+
+
+        <!-- <h2>Enter Your Name to Start!</h2>
+        <% if (user.local.email) { %>
+          <form action="/messages" method="POST">
+            <input type="text" value="<%= user.local.email %>" name="name">
+            <input type="text" placeholder="message" name="msg">
+            <button type="submit">Submit</button>
+          </form>
+      </div>
+      <% } %> -->
+<a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="https://kit.fontawesome.com/0672b027c3.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
